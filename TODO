@@ -1,0 +1,6 @@
+Animate more than one curve at the same time (requires many arrays which is too complicated at the moment)
+fix ball-separating issue
+reverse-fade when alpha is at max
+backgrounds
+change color, different shapes
+draw text of input along the bezier curves (atan2/bezierTangent)
