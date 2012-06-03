@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <!-- charset must remain utf-8 to be handled properly by Processing -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>sentence_curve_FIXED_SIZE : Built with Processing</title>
+
+    <style type="text/css">
+      /* <![CDATA[ */
+	
+	body {
+  	  margin: 60px 0px 0px 55px;
+	  font-family: verdana, geneva, arial, helvetica, sans-serif; 
+	  font-size: 11px; 
+	  background-color: #ddddcc; 
+	  text-decoration: none; 
+	  font-weight: normal; 
+	  line-height: normal; 
+	}
+		 
+	a          { color: #3399cc; }
+	a:link     { color: #3399cc; text-decoration: underline; }
+	a:visited  { color: #3399cc; text-decoration: underline; }
+	a:active   { color: #3399cc; text-decoration: underline; }
+	a:hover    { color: #3399cc; text-decoration: underline; }
+
+      /* ]]> */
+    </style>    
+  </head>
+
+  <body>
+    <div id="content">
+      <div id="sentence_curve_FIXED_SIZE_container">
+
+	<!-- This version plays nicer with older browsers, 
+	     but requires JavaScript to be enabled. 
+	     http://java.sun.com/javase/6/docs/technotes/guides/jweb/deployment_advice.html -->
+	<script type="text/javascript"
+		src="http://www.java.com/js/deployJava.js"></script>
+	<script type="text/javascript">
+	  /* <![CDATA[ */
+
+	  var attributes = { 
+            code: 'sentence_curve_FIXED_SIZE.class',
+            archive: 'sentence_curve_FIXED_SIZE.jar',
+            width: 900, 
+            height: 500,
+          };
+          var parameters = { 
+            image: 'loading.gif',
+            centerimage: 'true',
+          };
+          var version = '1.5';
+          deployJava.runApplet(attributes, parameters, version);
+
+          /* ]]> */
+        </script>
+        
+	<noscript> <div>
+	  <!--[if !IE]> -->
+	  <object classid="java:sentence_curve_FIXED_SIZE.class" 
+            	  type="application/x-java-applet"
+            	  archive="sentence_curve_FIXED_SIZE.jar"
+            	  width="900" height="500"
+            	  standby="Loading Processing software..." >
+            
+	    <param name="archive" value="sentence_curve_FIXED_SIZE.jar" />
+	    
+	    <param name="mayscript" value="true" />
+	    <param name="scriptable" value="true" />
+	    
+	    <param name="image" value="loading.gif" />
+	    <param name="boxmessage" value="Loading Processing software..." />
+	    <param name="boxbgcolor" value="#FFFFFF" />
+	  <!--<![endif]-->
+
+	    <!-- For more instructions on deployment, 
+		 or to update the CAB file listed here, see:
+		 http://java.sun.com/javase/6/webnotes/family-clsid.html
+		 http://java.sun.com/javase/6/webnotes/install/jre/autodownload.html -->
+	    <object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+		    codebase="http://java.sun.com/update/1.6.0/jinstall-6u20-windows-i586.cab"
+		    width="900" height="500"
+		    standby="Loading Processing software..."  >
+	      
+	      <param name="code" value="sentence_curve_FIXED_SIZE" />
+	      <param name="archive" value="sentence_curve_FIXED_SIZE.jar" />
+	      
+	      <param name="mayscript" value="true" />
+	      <param name="scriptable" value="true" />
+	      
+	      <param name="image" value="loading.gif" />
+	      <param name="boxmessage" value="Loading Processing software..." />
+	      <param name="boxbgcolor" value="#FFFFFF" />
+	      
+	      <p>
+		<strong>
+		  This browser does not have a Java Plug-in.
+		  <br />
+		  <a href="http://www.java.com/getjava" title="Download Java Plug-in">
+		    Get the latest Java Plug-in here.
+		  </a>
+		</strong>
+	      </p>
+	      
+	    </object>
+	    
+	  <!--[if !IE]> -->
+	  </object>
+	  <!--<![endif]-->
+
+	</div> </noscript>
+
+      </div>
+      
+      <p>
+	
+ Sentence to Curve Generator
+ Xiaoyang Kao - 3D Art - October 14 2011
+ Added screen rezize functionality on October 26 2011
+ Enter any phrase or sentence and the program will convert and draw those into curves
+ 
+ The program flow is like this: 
+ Collect entered data -> parse ASCII string into integers and store in array -> draw random bezier curves from values in that array
+ Each ASCII symbol (letters, periods, spaces, numbers.. etc) is paired with a decimal value that is determined with the int() function
+ Try to enter more than ~20 characters for varied curves (internal limit of 100 to avoid overload)ers, 
+ 
+ There is an inherent issue with the method of animating beziers: since the animation is a just bunch of little circles moving on the path, they will ocassionally split up as the speed increases
+ This problem can be improved by changing variable ballSpeed, which controls how many ellipses are drawn (1/ballSpeed is the number of ellipses). This will slow the animation down, however.
+ 
+ Future improvements:
+ Animate more than one curve at the same time (requires many arrays which is too complicated at the moment)
+ fix ball-separating issue
+ reverse-fade when alpha is at max
+ background
+ change color, different shapes
+ draw text of input along the bezier curves (atan2/bezierTangent)
+ 
+ 
+ User-controllable variables:
+ ballSpeed - speed of ball (indirectly controls density of ellipses)
+ bezierCountMax - maximum number of beziers before sketch stops (preset at 30)
+ The checkbox at the start screen lets you choose whether you want to display the bezier curve or not
+ The second checkbox lets you select whether you want fading or not
+ The slider lets you select how many curves to draw
+
+
+      </p>
+      
+      <p>
+	Source code: <a href="sentence_curve_FIXED_SIZE.pde">sentence_curve_FIXED_SIZE</a> 
+      </p>
+      
+      <p>
+	Built with <a href="http://processing.org" title="Processing.org">Processing</a>
+      </p>
+    </div>
+  </body>
+</html>
